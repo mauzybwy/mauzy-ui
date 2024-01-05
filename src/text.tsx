@@ -13,25 +13,25 @@ const Type = styled.Text<{bold?: boolean}>`
 `
 
 export const Body = styled(Type)`
-  font-size: 1rem;
+  font-size: 14px;
 `;
 
 export const H1 = styled(Type)`
-  font-size: 2rem;
+  font-size: 28px;
 `;
 
 export const H2 = styled(Type)`
-  font-size: 1.8rem;
+  font-size: 24px;
 `;
 
 export const H3 = styled(Type)`
-  font-size: 1.6rem;
+  font-size: 22px;
 `;
 
 export const H4 = styled(Type)`
-  font-size: 1.4rem;
+  font-size: 20px;
 `;
 
 export const H5 = styled(Type)`
-  font-size: 1.2rem;
+  font-size: 18px;
 `;

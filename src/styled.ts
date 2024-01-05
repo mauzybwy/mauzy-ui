@@ -63,7 +63,7 @@ export interface MarginProps {
 
 export const basicStyles = css<Partial<BasicProps>>`
   display: flex;
-  gap: ${p => p.gap || "default"};
+  gap: ${p => p.gap || 0};
   flex: ${p => p.flex || "0 1 auto"};
   position: ${p => p.pos || "initial"};
   border: ${p => p.border || "0"};
@@ -77,13 +77,13 @@ export const basicStyles = css<Partial<BasicProps>>`
 
 export const alignmentStyles = css<Partial<AlignmentProps>>`
   flex-direction: ${p => p.row ? "row" : "column"};
-  justify-content: ${p => p.center ? "center" : p.justify || "default"};
-  align-items: ${p => p.center ? "center" : p.align || "default"};
+  justify-content: ${p => p.center ? "center" : p.justify || "flex-start"};
+  align-items: ${p => p.center ? "center" : p.align || "flex-start"};
 `
 
 export const sizeStyles = css<Partial<SizeProps>>`
-  width: ${p => (p.full || p.fullX) ? "100%" : p.w || "default"};
-  height: ${p => (p.full || p.fullY) ? "100%" : p.h || "default"};
+  width: ${p => (p.full || p.fullX) ? "100%" : p.w || 0};
+  height: ${p => (p.full || p.fullY) ? "100%" : p.h || 0};
 `
 
 export const paddingStyles = css<Partial<PaddingProps>>`
