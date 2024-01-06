@@ -17,7 +17,7 @@ export const Box = styled.View<BoxStyleProps>`
 
 export const Circle = ({ radius, ...rest }: { radius: React.CSSProperties["width"] } & BoxStyleProps) => {
   return (
-    <Box w={radius} h={radius} radius="50%" {...rest} />
+    <Box w={radius} h={radius} radius={radius} {...rest} />
   );
 }
 
