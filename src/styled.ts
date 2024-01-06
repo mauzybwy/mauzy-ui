@@ -82,8 +82,8 @@ export const alignmentStyles = css<Partial<AlignmentProps>>`
 `
 
 export const sizeStyles = css<Partial<SizeProps>>`
-  width: ${p => (p.full || p.fullX) ? "100%" : p.w || 0};
-  height: ${p => (p.full || p.fullY) ? "100%" : p.h || 0};
+  width: ${p => (p.full || p.fullX) ? "100%" : p.w || "auto"};
+  height: ${p => (p.full || p.fullY) ? "100%" : p.h || "auto"};
 `
 
 export const paddingStyles = css<Partial<PaddingProps>>`
