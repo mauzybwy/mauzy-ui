@@ -70,7 +70,7 @@ export const basicStyles = css<Partial<BasicProps>>`
   position: ${p => p.pos || "initial"};
   border: ${p => p.border || "0"};
   border-radius: ${p => p.radius || 0};
-  background: ${p => p.color ? p.theme.colors[p.color] : "transparent"};
+  background: ${p => p.color ? p.theme.colors[p.color] || p.color : "transparent"};
   top: ${p => p.top || "auto"};
   right: ${p => p.right || "auto"};
   bottom: ${p => p.bottom || "auto"};
@@ -80,14 +80,14 @@ export const basicStyles = css<Partial<BasicProps>>`
 export const alignmentStyles = css<Partial<AlignmentProps>>`
   flex-direction: ${p => p.row ? "row" : "column"};
   justify-content: ${p => p.center ? "center" : p.justify || "flex-start"};
-  align-items: ${p => p.center ? "center" : p.align || "flex-start"};
+  align-items: ${p => p.center ? "center" : p.align || "stretch"};
 `
 
 export const sizeStyles = css<Partial<SizeProps>>`
-  width: ${p => p.w || "auto"};
-  height: ${p => p.h || "auto"};
-  min-width: ${p => (p.full || p.fullX) ? "100%" : p.minW || "auto"};
-  min-height: ${p => (p.full || p.fullY) ? "100%" : p.minH || "auto"};
+  width: ${p => (p.full || p.fullX) ? "100%" : p.w || "initial"};
+  height: ${p => (p.full || p.fullY) ? "100%" : p.h || "initial"};
+  min-width: ${p => (p.full || p.fullX) ? "100%" : p.minW || "initial"};
+  min-height: ${p => (p.full || p.fullY) ? "100%" : p.minH || "initial"};
 `
 
 export const paddingStyles = css<Partial<PaddingProps>>`
