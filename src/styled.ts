@@ -14,7 +14,7 @@ export interface BasicProps {
   pos: React.CSSProperties["position"];
   border: React.CSSProperties["border"];
   radius: React.CSSProperties["borderRadius"];
-  color: keyof MuiColors,
+  color: keyof MuiColors | string,
   left: React.CSSProperties["left"];
   right: React.CSSProperties["right"];
   top: React.CSSProperties["top"];
@@ -34,6 +34,8 @@ export interface SizeProps {
   h: React.CSSProperties["height"];
   minW: React.CSSProperties["width"];
   minH: React.CSSProperties["height"];
+  maxW: React.CSSProperties["width"];
+  maxH: React.CSSProperties["height"];
   full: boolean;
   fullX: boolean;
   fullY: boolean;
@@ -84,10 +86,12 @@ export const alignmentStyles = css<Partial<AlignmentProps>>`
 `
 
 export const sizeStyles = css<Partial<SizeProps>>`
-  width: ${p => (p.full || p.fullX) ? "100%" : p.w || "initial"};
-  height: ${p => (p.full || p.fullY) ? "100%" : p.h || "initial"};
-  min-width: ${p => (p.full || p.fullX) ? "100%" : p.minW || "initial"};
-  min-height: ${p => (p.full || p.fullY) ? "100%" : p.minH || "initial"};
+  width: ${p => (p.full || p.fullX) ? "100%" : p.w || "auth"};
+  height: ${p => (p.full || p.fullY) ? "100%" : p.h || "auto"};
+  min-width: ${p => (p.full || p.fullX) ? "100%" : p.minW || "auto"};
+  min-height: ${p => (p.full || p.fullY) ? "100%" : p.minH || "auto"};
+  max-width: ${p => p.maxW || "auto"};
+  max-height: ${p => p.maxH || "auto"};
 `
 
 export const paddingStyles = css<Partial<PaddingProps>>`
