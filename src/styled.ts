@@ -94,20 +94,14 @@ export const sizeStyles = css<Partial<SizeProps>>`
   max-height: ${p => p.maxH || "auto"};
 `
 
+const pmFormat = (t,r,b,l) => `${t || 0} ${r || 0} ${b || 0} ${l || 0}`
 export const paddingStyles = css<Partial<PaddingProps>>`
-  padding: ${p => p.p || 0};
-  padding-top: ${p => p.py || p.pt || 0};
-  padding-bottom: ${p => p.py || p.pb || 0};
-  padding-left: ${p => p.px || p.pl || 0};
-  padding-right: ${p => p.px || p.pr || 0};
+  padding: ${p => p.p || pmFormat(p.py || p.pt, p.px || p.pr, p.py || p.pb, p.px || p.pl)};
 `
 
 export const marginStyles = css<Partial<MarginProps>>`
-  margin: ${p => p.m || 0};
-  margin-top: ${p => p.my || p.mt || 0};
-  margin-bottom: ${p => p.my || p.mb || 0};
-  margin-left: ${p => p.mx || p.ml || 0};
-  margin-right: ${p => p.mx || p.mr || 0};
+  margin: ${p => p.m || pmFormat(p.my || p.mt, p.mx || p.mr, p.my || p.mb, p.mx || p.ml)};
+
 `
 
 /*****************************************************************************
