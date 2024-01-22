@@ -86,7 +86,7 @@ export const alignmentStyles = css<Partial<AlignmentProps>>`
 `
 
 export const sizeStyles = css<Partial<SizeProps>>`
-  width: ${p => (p.full || p.fullX) ? "100%" : p.w || "auth"};
+  width: ${p => (p.full || p.fullX) ? "100%" : p.w || "auto"};
   height: ${p => (p.full || p.fullY) ? "100%" : p.h || "auto"};
   min-width: ${p => (p.full || p.fullX) ? "100%" : p.minW || "auto"};
   min-height: ${p => (p.full || p.fullY) ? "100%" : p.minH || "auto"};
