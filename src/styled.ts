@@ -14,7 +14,7 @@ export interface BasicProps {
   pos: React.CSSProperties["position"];
   border: React.CSSProperties["border"];
   radius: React.CSSProperties["borderRadius"];
-  color: keyof MuiColors | string,
+  color: keyof MuiColors | string;
   left: React.CSSProperties["left"];
   right: React.CSSProperties["right"];
   top: React.CSSProperties["top"];
@@ -41,7 +41,7 @@ export interface SizeProps {
   fullY: boolean;
 }
 
-export interface PaddingProps {  
+export interface PaddingProps {
   p: React.CSSProperties["padding"];
   px: React.CSSProperties["paddingLeft"];
   py: React.CSSProperties["paddingTop"];
@@ -49,7 +49,7 @@ export interface PaddingProps {
   pb: React.CSSProperties["paddingBottom"];
   pl: React.CSSProperties["paddingLeft"];
   pr: React.CSSProperties["paddingRight"];
-};
+}
 
 export interface MarginProps {
   m: React.CSSProperties["margin"];
@@ -67,55 +67,57 @@ export interface MarginProps {
 
 export const basicStyles = css<Partial<BasicProps>>`
   display: flex;
-  gap: ${p => p.gap || 0};
-  flex: ${p => p.flex || "0 1 auto"};
-  position: ${p => p.pos || "initial"};
-  border: ${p => p.border || "0"};
-  border-radius: ${p => p.radius || 0};
-  background: ${p => p.color ? p.theme.colors?.[p.color] || p.color : "transparent"};
-  top: ${p => p.top || "auto"};
-  right: ${p => p.right || "auto"};
-  bottom: ${p => p.bottom || "auto"};
-  left: ${p => p.left || "auto"};
-`
+  gap: ${(p) => p.gap || 0};
+  flex: ${(p) => p.flex || "0 1 auto"};
+  position: ${(p) => p.pos || "initial"};
+  border: ${(p) => p.border || "0"};
+  border-radius: ${(p) => p.radius || 0};
+  background: ${(p) =>
+    p.color ? p.theme.colors?.[p.color] || p.color : "transparent"};
+  top: ${(p) => p.top || "auto"};
+  right: ${(p) => p.right || "auto"};
+  bottom: ${(p) => p.bottom || "auto"};
+  left: ${(p) => p.left || "auto"};
+`;
 
 export const alignmentStyles = css<Partial<AlignmentProps>>`
-  flex-direction: ${p => p.row ? "row" : "column"};
-  justify-content: ${p => p.center ? "center" : p.justify || "flex-start"};
-  align-items: ${p => p.center ? "center" : p.align || "stretch"};
-`
+  flex-direction: ${(p) => (p.row ? "row" : "column")};
+  justify-content: ${(p) => (p.center ? "center" : p.justify || "flex-start")};
+  align-items: ${(p) => (p.center ? "center" : p.align || "stretch")};
+`;
 
 export const sizeStyles = css<Partial<SizeProps>>`
-  width: ${p => (p.full || p.fullX) ? "100%" : p.w || "auto"};
-  height: ${p => (p.full || p.fullY) ? "100%" : p.h || "auto"};
-  min-width: ${p => (p.full || p.fullX) ? "100%" : p.minW || "auto"};
-  min-height: ${p => (p.full || p.fullY) ? "100%" : p.minH || "auto"};
-  max-width: ${p => p.maxW || "auto"};
-  max-height: ${p => p.maxH || "auto"};
-`
+  width: ${(p) => (p.full || p.fullX ? "100%" : p.w || "auto")};
+  height: ${(p) => (p.full || p.fullY ? "100%" : p.h || "auto")};
+  min-width: ${(p) => (p.full || p.fullX ? "100%" : p.minW || "auto")};
+  min-height: ${(p) => (p.full || p.fullY ? "100%" : p.minH || "auto")};
+  max-width: ${(p) => p.maxW || "auto"};
+  max-height: ${(p) => p.maxH || "auto"};
+`;
 
-const pmFormat = (t,r,b,l) => `${t || 0} ${r || 0} ${b || 0} ${l || 0}`
+const pmFormat = (
+  t: string | number | undefined,
+  r: string | number | undefined,
+  b: string | number | undefined,
+  l: string | number | undefined
+) => `${t || 0} ${r || 0} ${b || 0} ${l || 0}`;
 export const paddingStyles = css<Partial<PaddingProps>>`
-  padding: ${p => p.p || pmFormat(p.py || p.pt, p.px || p.pr, p.py || p.pb, p.px || p.pl)};
-`
+  padding: ${(p) =>
+    p.p || pmFormat(p.py || p.pt, p.px || p.pr, p.py || p.pb, p.px || p.pl)};
+`;
 
 export const marginStyles = css<Partial<MarginProps>>`
-  margin: ${p => p.m || pmFormat(p.my || p.mt, p.mx || p.mr, p.my || p.mb, p.mx || p.ml)};
-
-`
+  margin: ${(p) =>
+    p.m || pmFormat(p.my || p.mt, p.mx || p.mr, p.my || p.mb, p.mx || p.ml)};
+`;
 
 /*****************************************************************************
  * Commonly Shared
  *****************************************************************************/
 
-export type BoxStyleProps =
-  Partial<
-    BasicProps
-    & AlignmentProps
-    & SizeProps
-    & PaddingProps
-    & MarginProps
-  >;
+export type BoxStyleProps = Partial<
+  BasicProps & AlignmentProps & SizeProps & PaddingProps & MarginProps
+>;
 
 export const boxStyles = css<BoxStyleProps>`
   ${basicStyles}
@@ -123,5 +125,4 @@ export const boxStyles = css<BoxStyleProps>`
   ${sizeStyles}
   ${paddingStyles}
   ${marginStyles}
-`
-
+`;
