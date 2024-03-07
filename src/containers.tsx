@@ -12,6 +12,10 @@ export const Box = styled.View<BoxStyleProps>`
   ${boxStyles}
 `;
 
+export const ScrollBox = styled.ScrollView<BoxStyleProps>`
+  ${boxStyles}
+`;
+
 export const Circle = ({
   radius,
   ...rest
