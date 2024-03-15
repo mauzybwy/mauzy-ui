@@ -126,3 +126,14 @@ export const boxStyles = css<BoxStyleProps>`
   ${paddingStyles}
   ${marginStyles}
 `;
+
+export type ScrollBoxStyleProps = Partial<
+  BasicProps & SizeProps & PaddingProps & MarginProps
+>;
+
+export const scrollBoxStyles = css<ScrollBoxStyleProps>`
+  ${basicStyles}
+  ${sizeStyles}
+  ${paddingStyles}
+  ${marginStyles}
+`;

@@ -2,7 +2,12 @@
  * Import
  *****************************************************************************/
 import styled, { css } from "styled-components/native";
-import { BoxStyleProps, boxStyles } from "./styled";
+import {
+  BoxStyleProps,
+  boxStyles,
+  ScrollBoxStyleProps,
+  scrollBoxStyles,
+} from "./styled";
 
 /*****************************************************************************
  * Styled
@@ -12,8 +17,8 @@ export const Box = styled.View<BoxStyleProps>`
   ${boxStyles}
 `;
 
-export const ScrollBox = styled.ScrollView<BoxStyleProps>`
-  ${boxStyles}
+export const ScrollBox = styled.ScrollView<ScrollBoxStyleProps>`
+  ${scrollBoxStyles}
 `;
 
 export const Circle = ({
