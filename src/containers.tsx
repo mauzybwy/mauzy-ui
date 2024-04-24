@@ -8,6 +8,7 @@ import {
   ScrollBoxStyleProps,
   scrollBoxStyles,
 } from "./styled";
+import { PressableProps } from "react-native";
 
 /*****************************************************************************
  * Styled
@@ -45,6 +46,12 @@ export const Card = ({
 }: { children?: React.ReactElement | never[] } & BoxStyleProps) => (
   <Box {...rest}>{children}</Box>
 );
+
+type TouchyProps = BoxStyleProps & PressableProps;
+
+export const Touchy = styled.TouchableOpacity<TouchyProps>`
+  ${boxStyles}
+`;
 
 /****************************************************************************/
 
